@@ -12,7 +12,8 @@ app.controller('myCtrl', ['$scope', function myCtrl($scope) {
     serving: false,
     gamesWon: 0
   };
-  $scope.increaseScore = function () {
-    $scope.vm.[playerX].score += 1;
+
+  $scope.increaseScore = function (player) {
+    $scope.vm[player].score += 1;
   }
 }]);
