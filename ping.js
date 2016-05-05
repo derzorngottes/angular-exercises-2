@@ -31,17 +31,26 @@ app.controller('myCtrl', ['$scope', function myCtrl($scope) {
   }
 }]);
 
-app.factory('gameLogic', function() {
-  if ($scope.vm[player].score === 11) {
-    $scope.vm.game.whoWon = $scope.vm[player].name;
-    $scope.vm[player].gamesWon += 1;
-    $scope.vm.player1.score = 0;
-    $scope.vm.player2.score = 0;
-
+app.service('gameLogic', function() {
+  this.winner = function (player) {
+    if ($scope.vm[player].score === 11) {
+      $scope.vm.game.whoWon = $scope.vm[player].name;
+      $scope.vm[player].gamesWon += 1;
+      $scope.vm.player1.score = 0;
+      $scope.vm.player2.score = 0;
+      return true;
+    } else {
+      return false;
+    }
   }
-  if ($scope.vm.game.pointsStreak === 2) {
-    $scope.vm.player1.serving = !$scope.vm.player1.serving;
-    $scope.vm.player2.serving = !$scope.vm.player2.serving;
-    $scope.vm.game.pointsStreak = 0;
+  this.serving = function(player) {
+    if ($scope.vm.game.pointsStreak === 2) {
+      $scope.vm.player1.serving = !$scope.vm.player1.serving;
+      $scope.vm.player2.serving = !$scope.vm.player2.serving;
+      $scope.vm.game.pointsStreak = 0;
+      return true;
+    } else {
+      return false;
+    }
   }
 });
