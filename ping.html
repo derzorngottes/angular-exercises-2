@@ -8,16 +8,18 @@
   </head>
   <body ng-controller='myCtrl'>
     <div class='row'>
-      <div class='col-md-3 col-md-offset-4'>Ping Pong Score Keeper</div>
+      <div class='col-md-4 col-md-offset-4 header'><h2>Ping Pong Score Keeper</h2></div>
     </div>
 
     <div class='row'>
-      <div class='col-md-4 col-md-offset-2' ng-click='increaseScore()'>player 1 div</div>
-      <div class='col-md-4'>player 2 div</div>
+      <br>
+      <div class='col-md-4 col-md-offset-4 playerDiv' ng-click='increaseScore()'>player 1</div>
+      <div class='col-md-4 playerDiv'>player 2</div>
     </div>
 
     <div class='row'>
-      <div class='col-md-3 col-md-offset-4'>
+      <div class='col-md-4 col-md-offset-4 resetBtn'>
+        <br><br>
         <button>reset</button>
       </div>
     </div>
