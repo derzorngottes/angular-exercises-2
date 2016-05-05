@@ -13,23 +13,31 @@
 
     <div class='row'>
       <br>
-      <div class='col-md-4 col-md-offset-4 playerDiv' ng-click='increaseScore("player1")'>player 1</div>
-      <div class='col-md-4 playerDiv' ng-click='increaseScore("player2")'>player 2</div>
-    </div>
-
-    <div class='row'>
-      <div class='col-md-4 col-md-offset-4 resetBtn'>
-        <br><br>
-        <p>Current score:</p>
-        <p ng-cloak>Player 1: {{ vm.player1.score }}</p>
-        <p ng-cloak>Player 2: {{ vm.player2.score }}</p>
+      <div class='col-md-4 col-md-offset-4 playerDiv' ng-click='increaseScore("player1")'>
+        player 1
+        <br>
+        <p><span ng-if='vm.player1.serving' style='font-size: 16px'>serving</span></p>
+      </div>
+      <div class='col-md-4 playerDiv' ng-click='increaseScore("player2")'>
+        player 2
+        <br>
+        <p><span ng-if='vm.player2.serving' style='font-size: 16px'>serving</span></p>
       </div>
     </div>
 
     <div class='row'>
       <div class='col-md-4 col-md-offset-4 resetBtn'>
         <br><br>
-        <button>reset</button>
+        <p>Current score:</p>
+        <p ng-cloak>Player 1: <strong>{{ vm.player1.score }}</strong></p>
+        <p ng-cloak>Player 2: <strong>{{ vm.player2.score }}</strong></p>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-4 col-md-offset-4 resetBtn'>
+        <br><br>
+        <button ng-click='resetGame()'>reset</button>
       </div>
     </div>
 
